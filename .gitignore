@@ -1,0 +1,8 @@
+venv
+__pycache__/*
+config/__pycache__/*
+config/config.py
+models/__pycache__/*
+pg_embedding/__pycache__/*
+store_data/__pycache__/*
+user/__pycache__/*

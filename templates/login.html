@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login Form  </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='register.css' )}}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Login</div>
+      <div class="content">
+            <form action="{{ url_for('user.Login') }}" method="post">
+              <div class="user-details">
+                <div class="input-box ">
+                  <span class="details">Username</span>
+                  <input type="text"  placeholder="Enter your username" name="username" required>
+                </div>
+                
+                <div class="input-box">
+                  <span class="details">Password</span>
+                  <input type="password" placeholder="Enter your password" name="password" required>
+                </div>
+                <div class="input-box">
+                  <span class="details mt-4 ">create new account: <a href="{{ url_for('user.Register') }}" style="text-decoration: none;">Register</a></span>
+                </div>
+                
+              </div>
+              
+              <div class="button">
+                <input type="submit" value="Login">
+              </div>
+              
+                    
+              {% with error = get_flashed_messages(category_filter=["error"]) %}
+                  {% if error %}
+                      {% for message in error %}
+                          <div class="alert alert-danger text-center  w-100 m-auto" role="alert">
+                              {{message}}
+                          </div>
+                      {% endfor %}
+             
+                  {% endif %}
+              {%endwith%}
+            
+            </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
